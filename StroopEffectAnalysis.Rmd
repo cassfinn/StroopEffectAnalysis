@@ -4,7 +4,7 @@ author: "Claudia Cassidy"
 date: "11/9/2017"
 output:
   html_document: default
-  pdf_document: default
+  pdf_document: default 
 ---
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
@@ -99,7 +99,7 @@ summary(df)
 
 #####Range of the data (Highest - Lowest):
 The difference in time it took each subject to read the Incongruent vs. the Congruent list ranged from 1.95 to 21.92 seconds.
-The mean of the time difference is 7.96 seconds and the median time is 7.67 seconds.
+The mean of the time difference is 7.97 seconds and the median time is 7.67 seconds.
 
 ```{r, message=F, warning=F}
 
@@ -177,7 +177,7 @@ ggplot(data=df3, aes(y=time, x=congruency, fill=congruency)) +
 ```
 
 The bar chart above and the charts below also illustrate the difference between 
-reading Congruent vs. Incongruent word lists.
+reading Congruent vs. Incongruent word lists. It took longer to read the Incongruent list.
 
 
 ```{r, message=F, warning=F}
@@ -230,7 +230,8 @@ The T-statistic is -8.020707
 
 #Calculate the p-value:
 
-p_value <- pt(T, df = degreesOfFreedom, lower.tail = TRUE) * 2; p_value
+p_value <- pt(T, df = degreesOfFreedom, lower.tail = TRUE) * 2
+p_value
 
 ```
 p-value
@@ -251,7 +252,7 @@ t.test(x=df$Congruent, y=df$Incongruent, alternative = "two.sided", mu = 0, pair
 
 
 
-Since the p-value is less than 0.05, I reject the null hypothesis. The difference between the Congruent and Incongruent times is statistically significant.
+Since the p-value is less than 0.05, we reject the null hypothesis. The difference between the Congruent and Incongruent times is statistically significant.
 The Stroop Effect does impact the time it takes to read the word list. 
 
 The t-statistic of the difference data group is -8.0207, which is bigger than the t critical value -2.0687.
@@ -275,7 +276,8 @@ Variations of the Stroop test are:
 From Wikipedia:
 "In an emotional Stroop task, an individual is given negative emotional words like "grief," "violence," and "pain" mixed in with more neutral words like "clock," "door," and "shoe". Tthe words are colored and the individual is supposed to name the color. Research has revealed that individuals that are depressed are more likely to say the color of a negative word slower than the color of a neutral word. While both the emotional Stroop and the classic Stroop involve the need to suppress irrelevant or distracting information, there are differences between the two. The emotional Stroop effect emphasizes the conflict between the emotional relevance to the individual and the word; whereas, the classic Stroop effect examines the conflict between the incongruent color and word."
 
-
+2 - Spatial:
+The spatial Stroop effect demonstrates interference between the stimulus location with the location information in the stimuli.[38] In one version of the spatial Stroop task, an up or down-pointing arrow appears randomly above or below a central point. Despite being asked to discriminate the direction of the arrow while ignoring its location, individuals typically make faster and more accurate responses to congruent stimuli (i.e., an down-pointing arrow located below the fixation sign) than to incongruent ones (i.e., a up-pointing arrow located below the fixation sign). A similar effect, the Simon effect, uses non-spatial stimuli.
 
 
 
