@@ -1,10 +1,11 @@
 ---
 title: "Stroop Effect"
 author: "Claudia Cassidy"
-date: "11/9/2017"
+date: "11/10/2017"
 output:
+  word_document: default
+  pdf_document: default
   html_document: default
-  pdf_document: default 
 ---
 
 ```{r setup, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
@@ -31,18 +32,16 @@ The independent variable is the ink color of each word and whether or not it is 
 ### 2. What is an appropriate set of hypotheses for this task? What kind of statistical test do you expect to perform? Justify your choices.
 
 ##### Null Hypothesis
-An appropriate hypothesis for this task is that the ink color of the words will not affect the time it takes for a person to read through the list of words.  This would be the null hypotheses.
+An appropriate hypothesis for this task is that the ink color of the words will not affect the time it takes for a person to read through the list of words.  This would be the null hypothesis.
 
-H0 = Congruent - Incongruent = 0
+$$H_{0} = μCongruent - μIncongruent = 0$$
 
-##### Alternate Hypotheses
-An alternate hypothesis is that it will take longer for a person to read through the list of words if the ink color of the word is incongruent with (different than) the word. The length of time would be statistically different, indicating that the treatment applied, the different ink colors, affected the outcome.
+##### Alternate Hypothesis
 
-Ha1 = Congruent - Incongruent > 0
+An appropriate alternative hypothesis for this task is that the ink color of the words will significantly affect the time it takes for a person to read through the list of words.
 
-Another alternate hypothesis is that it will take less time for a person to read through the list of words if the ink color of the word is incongruent with (different than) the word. The length of time would be statistically different, indicating that the treatment applied, the different ink colors, affected the outcome.
 
-Ha2 = Congruent - Incongruent < 0
+$$H_{A} = μCongruent\: \ !=\:  μIncongruent$$
 
 
 ##### Statistical Tests
@@ -132,7 +131,7 @@ df2 <- gather(df.subjectId, congruency, time, -subjectId)
 ```
 
 A summary of the data:
-```{r}
+```{r, message=F, warning=F}
 # Calculate the average time, group by congruence
 df2 %>%
     group_by(congruency) %>%
@@ -142,7 +141,7 @@ df2 %>%
 
 Since we are measuring the difference, I separated the Score into one dataset and the Congruent/Incongruent data into another.
 
-```{r}
+```{r, message=F, warning=F}
 df3 <- subset(df2,df2$congruency == "Congruent" | df2$congruency == "Incongruent")
 
 dfDiff <- subset(df2,df2$congruency == "Score")
@@ -236,7 +235,7 @@ p_value
 ```
 p-value
 
-```{r}
+```{r, message=F, warning=F}
 
 #Build the confidence interval based on 95% confidence level, 2.5% on each tail
 diff_score_bar + c(1, -1) * qt(0.975, df = degreesOfFreedom, lower.tail = FALSE) * standardError
@@ -244,7 +243,7 @@ diff_score_bar + c(1, -1) * qt(0.975, df = degreesOfFreedom, lower.tail = FALSE)
 ```
 
 
-```{r}
+```{r, message=F, warning=F}
 
 #Double check the calculations using the t.test() function
 t.test(x=df$Congruent, y=df$Incongruent, alternative = "two.sided", mu = 0, paired = TRUE, conf.level = 0.95)
