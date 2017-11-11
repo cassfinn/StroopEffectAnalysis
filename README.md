@@ -11,4 +11,4 @@ Included in this repository are:
 
 4 - StroopEffectAnalysis.pdf:  the PDF version of the analysis.
 
-5 - stroopdata2.csv:  the csv file that was used for the analysis
+5 - stroopdata2.csv:  the csv data file that was used in the analysis
