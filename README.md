@@ -9,4 +9,6 @@ Included in this repository are:
 
 3 - StroopEffectAnalysis.docx:  the Word doc version of the analysis.
 
-4 - stroopdata2.csv:  the csv file that was used for the analysis
+4 - StroopEffectAnalysis.pdf:  the PDF version of the analysis.
+
+5 - stroopdata2.csv:  the csv file that was used for the analysis
